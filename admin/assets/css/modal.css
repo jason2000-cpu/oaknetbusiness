@@ -1,0 +1,14 @@
+/* Center the modal vertically and horizontally */
+/* 
+  /* Center the modal horizontally and vertically */
+  .modal {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Fix the modal backdrop */
+  .modal-backdrop {
+    /* Make the backdrop transparent */
+    background-color: rgba(0, 0, 0, 0.5) !important;
+  } 
