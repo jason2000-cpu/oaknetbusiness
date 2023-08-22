@@ -3,6 +3,6 @@
 define("HOST","localhost");
 define("DBNAME","trade");
 define("USER","root");
-define("PASS","");
+define("PASS","@Jack2000");
                     
 ?>

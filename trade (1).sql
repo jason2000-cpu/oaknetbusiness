@@ -27,6 +27,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `accounts`
 --
 
+use trade;
+
 CREATE TABLE `accounts` (
   `account_id` int(11) NOT NULL,
   `account_name` varchar(255) NOT NULL,

@@ -122,6 +122,7 @@ if($_SERVER['REQUEST_METHOD'] =='POST'){
     }
     if(empty($error)){
         $query="INSERT INTO users (user_firstname,user_lastname,user_name,user_email,password)VALUES(:firstname,:lastname,:username,:email,:password)";
+
         $arr=[
             ":firstname"=>$first_name,
             ":lastname"=>$last_name,
@@ -180,16 +181,16 @@ if($_SERVER['REQUEST_METHOD'] =='POST'){
                                 <div class="row">
                                     <div class="col-md-6 mb-4">
                                         <div class="form-outline">
-                                            <input type="text" name="first_name" id="form3Example1"
+                                            <input type="text" name="first_name" id="Fname"
                                                 class="form-control" />
-                                            <label class="form-label" for="form3Example1">First name</label>
+                                            <label class="form-label" for="Fname">First name</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <div class="form-outline">
-                                            <input type="text" name="last_name" id="form3Example2"
+                                            <input type="text" name="last_name" id="Lname"
                                                 class="form-control" />
-                                            <label class="form-label" for="form3Example2">Last name</label>
+                                            <label class="form-label" for="Lname">Last name</label>
                                         </div>
                                     </div>
                                 </div>
@@ -198,31 +199,31 @@ if($_SERVER['REQUEST_METHOD'] =='POST'){
                                 <div class="form-outline mb-4">
                                     <p class="text-danger">
                                         <?php echo isset($error['username']) ? $error['username'] : '' ?></p>
-                                    <input type="text" name="username" id="form3Example3" class="form-control" />
-                                    <label class="form-label" for="form3Example3">Desired Username</label>
+                                    <input type="text" name="username" id="username" class="form-control" />
+                                    <label class="form-label" for="username">Desired Username</label>
                                 </div>
 
                                 <!-- Email input -->
                                 <div class="form-outline mb-4">
                                     <p class="text-danger"><?php echo isset($error['email']) ? $error['email'] : '' ?>
                                     </p>
-                                    <input type="email" name="email" id="form3Example3" class="form-control" />
-                                    <label class="form-label" for="form3Example3">Email address</label>
+                                    <input type="email" name="email" id="email" class="form-control" />
+                                    <label class="form-label" for="email">Email address</label>
                                 </div>
 
                                 <!-- Password input -->
                                 <div class="form-outline mb-4">
                                     <p class="text-danger">
                                         <?php echo isset($error['password']) ? $error['password'] : '' ?></p>
-                                    <input type="password" name="password" id="form3Example4" class="form-control" />
-                                    <label class="form-label" for="form3Example4">Password</label>
+                                    <input type="password" name="password" id="password" class="form-control" />
+                                    <label class="form-label" for="password">Password</label>
                                 </div>
 
                                 <!-- Checkbox -->
                                 <div class="d-flex justify-content-center mb-4">
                                     <p id="span">
                                         Already have an account? <span><a id="register"
-                                                href="<?php echo APPURL; ?>">Login
+                                                href="/trade">Login
                                             </a></span>
 
 

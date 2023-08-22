@@ -10,6 +10,6 @@ module.exports = class Page {
     * @param path path of the sub page (e.g. /path/to/page.html)
     */
     open (path) {
-        return browser.url(`https://the-internet.herokuapp.com/${path}`)
+        return browser.url(`http://localhost/trade${path}`)
     }
 }

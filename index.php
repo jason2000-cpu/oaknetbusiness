@@ -163,16 +163,16 @@ if(empty($error)){
                                 <div class="form-outline mb-4">
                                     <p class="text-danger">
                                         <?php echo isset($error['email']) ? $error['email'] : '' ?></p>
-                                    <input type="email" id="form3Example3" name="email" class="form-control" />
-                                    <label class="form-label" for="form3Example3">Email address</label>
+                                    <input type="email" id="email" name="email" class="form-control" />
+                                    <label class="form-label" for="email">Email address</label>
                                 </div>
 
                                 <!-- Password input -->
                                 <div class="form-outline mb-4">
                                     <p class="text-danger">
                                         <?php echo isset($error['password']) ? $error['password'] : '' ?></p>
-                                    <input type="password" id="form3Example4" name="password" class="form-control" />
-                                    <label class="form-label" for="form3Example4">Password</label>
+                                    <input type="password" id="password" name="password" class="form-control" />
+                                    <label class="form-label" for="password">Password</label>
                                 </div>
 
                                 <!-- Checkbox -->

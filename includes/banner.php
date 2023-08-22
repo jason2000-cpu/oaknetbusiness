@@ -1,9 +1,9 @@
  <div class="me-banner">
      <div class="container">
          <div class="row">
-             <div class="col-md-7 col-12">
+             <div   class="col-md-7 col-12">
                  <div class="me-banner-text">
-                     <h1>Money doesn't come without care</h1>
+                     <h1 id="banner-header" >Money doesn't come without care</h1>
                      <p>
                          In today's fast-paced world, it's essential to understand the value of financial freedom and
                          the impact it can have on our lives. At Oaknet, we prioritize your financial well-being by
