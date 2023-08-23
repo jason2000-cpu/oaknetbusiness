@@ -48,7 +48,7 @@ if(!isset($_SESSION['username'])){
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
+                        <span aria-hidden="true"id='closeBtn'>×</span>
                     </button>
                     <div class="me-my-profile-head me-my-profile-change">
                         <div class="me-profile-name">
@@ -118,7 +118,7 @@ if(!isset($_SESSION['username'])){
                       $users=$app->select_all($query);
                      ?>
                         <?php foreach($users as $user): ?>
-                        <button class="me-btn" type="button"
+                        <button class="me-btn" type="submit" id="ProfInfBtn" name="submit
                             onclick="addUserdetails(<?php echo $user->user_id ?>);">Save</button>
                         <?php endforeach; ?>
                     </div>

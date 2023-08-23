@@ -11,20 +11,60 @@ class HomePage extends Page {
     get bannerText () {
         return $('#banner-header');
     }
-    get closeBtn () {
-        return $('button[type="button"]');
-    }
 
     get accountLink () {
         console.log("THE LINK TEXT HERE:::::::",  $('#aboutLink'));
-        return $('#aboutLink');
+        return $('#accountLink');
     }
 
+    get profileModal () {
+        return $('#me-profile-modal');
+    }
 
+    get profileModalCloseBtn () {
+        return $('#closeBtn');
+    }
+    
+    get profileMobileInput () {
+        return $('#mobile')
+    }
+
+    get profileCountryInput () {
+        return $('#country')
+    }
+
+    get profileResidenceInput () {
+        return $('#residence')
+    }
+    
+    get profileImageInput () {
+        return $('#image')
+    }
+
+    get profileSubmitBtn () {
+        return $('#ProfInfBtn')
+    }
+
+    get successMessage () {
+        return $('#swal2-html-container')
+    }
+
+    async updateProfile (regDetails) {
+        const { mobile, country, residence, image } = regDetails;
+        await this.profileMobileInput.setValue(mobile);
+        await this.profileCountryInput.setValue(country);
+        await this.profileResidenceInput.setValue(residence);
+        (await this.profileImageInput).setValue(image);
+        await this.profileSubmitBtn.click();
+
+        console.log("THE PROFILE DETAILS WERE FILLED SUCCESSFULLY")
+
+    }
     async viewAccount () {
-        setTimeout(async () => {
+            if (await this.profileModal.isExisting()) {
+                await this.profileModalCloseBtn.click();
+            }
             await this.accountLink.click();
-        }, 100000)
         //  console.log("THE LINK TEXT HERE:::::::", await this.accountLink);
     }
 
