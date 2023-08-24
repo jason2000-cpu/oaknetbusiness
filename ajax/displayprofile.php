@@ -147,8 +147,8 @@
 
                         </li>
                         <?php endforeach; ?>
-                        <li><a href="<?php echo APPURL ?>auth/logout.php" class="me-btn">Log Out</a></li>
-                        <li><button type="button" onclick="showModal()" class="me-btn">Edit Profile</button>
+                        <li><a href="<?php echo APPURL ?>auth/logout.php" class="me-btn"id="profLogoutBtn" >Log Out</a></li>
+                        <li><button type="button" onclick="showModal()" class="me-btn" id="profEditBtn" >Edit Profile</button>
                         </li>
 
                         <p>For more details, click the button above.</p>

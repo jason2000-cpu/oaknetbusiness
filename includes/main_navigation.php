@@ -18,7 +18,7 @@
                         <li><a href="http://localhost/trade/about.php" id="aboutLink">About</a></li>
                         <li><a href="http://localhost/trade/service.php" id="servicesLink">Services</a></li>
                         <li class="me-menu-children">
-                            <a href="javascript:;">Pages</a>
+                            <a href="javascript:;" id="pages">Pages</a>
                             <ul class="me-sub-menu">
                                 <li><a href="http://localhost/trade/plans.php" id="invstmntLink" >Investment Plan</a></li>
                                 <li><a href="http://localhost/trade/faq.php" id="faqLink">Faq</a></li>
@@ -29,7 +29,7 @@
                         <li><a href="http://localhost/trade/contact.php" id="contactsLink">Contact</a></li>
                         <li class="me-menu-children">
                             <a style="color:#562221!important;"
-                                href="javascript:;"><?php echo $_SESSION['username'] ?></a>
+                                href="javascript:;" id="logoutNav"><?php echo $_SESSION['username'] ?></a>
                             <ul class="me-sub-menu">
                                 <li><a  id="logout" href="http://localhost/trade/auth/logout.php">Logout</a></li>
 

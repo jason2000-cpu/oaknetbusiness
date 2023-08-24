@@ -125,7 +125,7 @@ if(!isset($_SESSION['username'])){
                       $users=$app->select_all($query);
                      ?>
                         <?php foreach($users as $user): ?>
-                        <button class="me-btn" type="button"
+                        <button class="me-btn" type="button" id="ProfInfBtn"
                             onclick="updateUserdetails(<?php echo $user->user_id ?>);">Save</button>
                         <?php endforeach; ?>
                     </div>
@@ -165,8 +165,6 @@ if(!isset($_SESSION['username'])){
                 // Show the modal using Bootstrap's modal method
                 $('#me-profile-modal').modal('show');
             }
-
-
 
         }
 

@@ -35,12 +35,12 @@ class RegisterPage extends Page {
      * e.g. to login using username and password
      */
     async register (regDetails) {
-        const { firstName, lastName, username, email, password } = regDetails;
+        const { firstname, lastname, username, email, password } = regDetails;
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
         await this.inputEmail.setValue(email);
-        await this.inputFirstName.setValue(firstName);
-        await this.inputLastName.setValue(lastName);
+        await this.inputFirstName.setValue(firstname);
+        await this.inputLastName.setValue(lastname);
         await this.btnSubmit.click();
     }
 

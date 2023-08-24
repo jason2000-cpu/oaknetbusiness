@@ -12,11 +12,16 @@ class HomePage extends Page {
         return $('#banner-header');
     }
 
-    get   accountLink () {
-        function accountLink () {
-            return document.querySelector('#accountLink');
-        }
-        return accountLink();
+    get logoutNav () {
+        return $('#logoutNav');
+    }
+
+    get logoutLink () {
+        return $('#logout');
+    }
+
+    get accountLink () {
+        return $('#accountLink');
     }
     get aboutLink () {
         return $('#aboutLink');
@@ -34,12 +39,31 @@ class HomePage extends Page {
         return $('#contactsLink');
     }
 
+    get pagesLink () {
+        return $('#pages');
+    }
+
     get profileModal () {
         return $('#me-profile-modal');
     }
 
     get profileModalCloseBtn () {
         return $('#closeBtn');
+    }
+
+    get profilEmailInput () {
+        return $('#email');
+    }
+
+    get profilePassInput () {
+        return $('#password');
+    }
+
+    get profileFnameInput () {
+        return $('#firstname');
+    }
+    get profileLnameInput () {
+        return $('#lastname');
     }
     
     get profileMobileInput () {
@@ -65,17 +89,39 @@ class HomePage extends Page {
     get successMessage () {
         return $('#swal2-html-container')
     }
-
     async updateProfile (regDetails) {
-        const { mobile, country, residence, image } = regDetails;
+        const { firstname,password, lastname, email, mobile, country, residence, image } = regDetails;
+
+        const editProfileBtn = await $('#profEditBtn');
+        // await editProfileBtn.scrollIntoView();
+        browser.scroll(0, 100)
+        console.log("THE EDIT PROFILE BUTTONS ARE::::::::", editProfileBtn.getText());
+        await editProfileBtn.click();
+        await this.profileFnameInput.setValue(firstname);
+        await this.profileLnameInput.setValue(lastname);
+        await this.profilEmailInput.setValue(email);
+        await this.profilePassInput.setValue(password);
         await this.profileMobileInput.setValue(mobile);
         await this.profileCountryInput.setValue(country);
         await this.profileResidenceInput.setValue(residence);
-        (await this.profileImageInput).setValue(image);
+        browser.execute((el) => el.click(), await this.profileImageInput);
+        await browser.pause(8000);
         await this.profileSubmitBtn.click();
 
         console.log("THE PROFILE DETAILS WERE FILLED SUCCESSFULLY")
 
+    }
+
+    async logout () {
+        if (await this.profileModal.isExisting()) {
+            await this.profileModalCloseBtn.click();
+        }
+        await this.logoutNav.moveTo();
+        await this.logoutLink.waitForDisplayed();
+        await this.logoutLink.click();
+        const expectedPath = '/trade';
+        const url = await browser.getUrl();
+        await expect(url).toContain(expectedPath)
     }
     async viewAboutPage () {
             if (await this.profileModal.isExisting()) {
@@ -124,8 +170,25 @@ class HomePage extends Page {
         const url = await browser.getUrl();
         await expect(url).toContain(expectedPath)
     }
-
     
+    async viewAccountPage () {
+        if(await this.profileModal.isExisting()) {
+            await this.profileModalCloseBtn.click();
+        }
+        // hover over the element
+        await this.pagesLink.moveTo()
+
+        //wait for the element to be visible
+        await this.accountLink.waitForDisplayed()
+
+        // click on the element
+        await this.accountLink.click()
+
+        const expectedPath = 'trade/my-account.php';
+        const url = await browser.getUrl();
+        await expect(url).toContain(expectedPath)
+
+    }
 }
 
 module.exports = new HomePage();
