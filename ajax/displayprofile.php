@@ -219,7 +219,7 @@
                             </div>
                             <div class="me-summary-data-add">
                                 <input type="number" id="deposit" placeholder="Add Money" required />
-                                <button onclick="addMoney()">Add</button>
+                                <button onclick="addMoney()" id="depositBtn" >Add</button>
                             </div>
 
                         </li>

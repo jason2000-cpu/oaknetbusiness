@@ -127,5 +127,13 @@ describe('Site actions', () => {
         await HomePage.viewAccountPage();
         await HomePage.updateProfile(regDetails)
     })
+
+    // Test for add  funds
+    it('should add funds', async () => {
+        await loginPage.open()
+        await loginPage.login(regDetails)
+        await HomePage.viewAccountPage();
+        await HomePage.addFunds(1000)
+    })
 })
 

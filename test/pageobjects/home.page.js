@@ -94,7 +94,7 @@ class HomePage extends Page {
 
         const editProfileBtn = await $('#profEditBtn');
         // await editProfileBtn.scrollIntoView();
-        browser.scroll(0, 100)
+        browser.scroll(0, 200)
         console.log("THE EDIT PROFILE BUTTONS ARE::::::::", editProfileBtn.getText());
         await editProfileBtn.click();
         await this.profileFnameInput.setValue(firstname);
@@ -187,6 +187,25 @@ class HomePage extends Page {
         const expectedPath = 'trade/my-account.php';
         const url = await browser.getUrl();
         await expect(url).toContain(expectedPath)
+
+    }
+
+    async addFunds (amount) {
+        const addFundsInput = await $('#deposit')
+        const addFundsBtn = await $('#depositBtn')
+        await this.pagesLink.moveTo()
+        await this.accountLink.waitForDisplayed()
+        await this.accountLink.click()
+        await addFundsInput.setValue(amount)
+        const navigateToDepositPage = async () =>{
+            await addFundsBtn.click()
+            const url = await browser.getUrl();
+            const expectedPath = 'trade/deposit/deposit_pay.php';
+            await expect(url).toContain(expectedPath)
+        }
+
+        navigateToDepositPage()
+
 
     }
 }
