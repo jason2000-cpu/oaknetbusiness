@@ -12,9 +12,26 @@ class HomePage extends Page {
         return $('#banner-header');
     }
 
-    get accountLink () {
-        console.log("THE LINK TEXT HERE:::::::",  $('#aboutLink'));
-        return $('#accountLink');
+    get   accountLink () {
+        function accountLink () {
+            return document.querySelector('#accountLink');
+        }
+        return accountLink();
+    }
+    get aboutLink () {
+        return $('#aboutLink');
+    }
+
+    get servicesLink () {
+        return $('#servicesLink');
+    }
+
+    get reportsLink () {
+        return $('#reportsLink');
+    }
+
+    get contactsLink () {
+        return $('#contactsLink');
     }
 
     get profileModal () {
@@ -60,7 +77,7 @@ class HomePage extends Page {
         console.log("THE PROFILE DETAILS WERE FILLED SUCCESSFULLY")
 
     }
-    async viewAccount () {
+    async viewAboutPage () {
             if (await this.profileModal.isExisting()) {
                 await this.profileModalCloseBtn.click();
             }
@@ -68,7 +85,46 @@ class HomePage extends Page {
         //  console.log("THE LINK TEXT HERE:::::::", await this.accountLink);
     }
 
-    
+    async viewServicesPage () {
+        if (await this.profileModal.isExisting()) {
+            await this.profileModalCloseBtn.click();
+        }
+        await this.servicesLink.click();
+        const expectedPath = '/trade/service.php';
+        const url = await browser.getUrl();
+        await expect(url).toContain(expectedPath)
+    }
+
+    async viewAboutPage () {
+        if(await this.profileModal.isExisting()) {
+            await this.profileModalCloseBtn.click();
+        }
+        await this.aboutLink.click();
+        const expectedPath = 'trade/about.php';
+        const url = await browser.getUrl();
+        await expect(url).toContain(expectedPath)
+    }
+
+    async viewReportsPage () {
+        if(await this.profileModal.isExisting()) {
+            await this.profileModalCloseBtn.click();
+        }
+        await this.reportsLink.click();
+        const expectedPath = 'trade/Blog.php';
+        const url = await browser.getUrl();
+        await expect(url).toContain(expectedPath)
+    }
+
+    async viewContactsPage () {
+        if(await this.profileModal.isExisting()) {
+            await this.profileModalCloseBtn.click();
+        }
+        await this.contactsLink.click();
+        const expectedPath = 'trade/contact.php';
+        const url = await browser.getUrl();
+        await expect(url).toContain(expectedPath)
+    }
+
     
 }
 
