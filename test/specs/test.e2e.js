@@ -26,97 +26,97 @@ const regDetails = {
 
 
 
-// describe('My Login application', () => {
+describe('My Login application', () => {
 
-//     // Test for registration
+    // Test for registration
 
-//     it('should register with valid credentials', async () => {
-//         await RegisterPage.open()
+    it('should register with valid credentials', async () => {
+        await RegisterPage.open()
         
 
-//         await RegisterPage.register(regDetails);
+        await RegisterPage.register(regDetails);
                 
-//         //Get current url after registration
+        //Get current url after registration
 
-//         const url = await  browser.getUrl();
-//         console.log("THE CURRENT URL::::::::",url)
+        const url = await  browser.getUrl();
+        console.log("THE CURRENT URL::::::::",url)
 
-//         //expected path
-//         const expectedPath = '/trade'
+        //expected path
+        const expectedPath = '/trade'
 
-//         await expect(url).toContain(expectedPath)
-//     })
+        await expect(url).toContain(expectedPath)
+    })
 
-//     // Test for login
+    // Test for login
 
-//     it('should login with valid credentials', async () => {
-//         await loginPage.open()
+    it('should login with valid credentials', async () => {
+        await loginPage.open()
 
-//         await loginPage.login(regDetails)
+        await loginPage.login(regDetails)
 
-//         // await HomePage.updateProfile(regDetails); 
+        // await HomePage.updateProfile(regDetails); 
 
 
-//         if (!await HomePage.bannerText.isExisting()) {
-//             // await HomePage.updateProfile(regDetails); 
-//             await HomePage.profileModalCloseBtn.click();
-//         }
-//         await expect(HomePage.bannerText).toHaveTextContaining(
-//             'Money Doesn\'T Come Without Care')
+        if (!await HomePage.bannerText.isExisting()) {
+            // await HomePage.updateProfile(regDetails); 
+            await HomePage.profileModalCloseBtn.click();
+        }
+        await expect(HomePage.bannerText).toHaveTextContaining(
+            'Money Doesn\'T Come Without Care')
         
-//     })
+    })
 
-//     // Test for logout
-//     it('should logout', async () => {
-//         await loginPage.open();
-//         await loginPage.login(regDetails);
-//         await HomePage.logout()
-//     })
-
-
+    // Test for logout
+    it('should logout', async () => {
+        await loginPage.open();
+        await loginPage.login(regDetails);
+        await HomePage.logout()
+    })
 
 
-// })
 
 
-// describe('Site navigation', () => {
+})
 
-//     // Test for about page navigation
 
-//     it('should navigate to the about page', async () => {
-//         await loginPage.open()
-//         await loginPage.login(regDetails)
-//         await HomePage.viewAboutPage()
-//     })
+describe('Site navigation', () => {
 
-//     // Test for services page navigation
-//     it('should navigate to the services page', async () => {
-//         await loginPage.open()
-//         await loginPage.login(regDetails)
-//         await HomePage.viewServicesPage()
-//     })
+    // Test for about page navigation
 
-//     // Test for reports page navigation
-//     it('should navigate to the reports page', async () => {
-//         await loginPage.open()
-//         await loginPage.login(regDetails)
-//         await HomePage.viewReportsPage()
-//     })
+    it('should navigate to the about page', async () => {
+        await loginPage.open()
+        await loginPage.login(regDetails)
+        await HomePage.viewAboutPage()
+    })
 
-//     // Test for contacts page navigation
-//     it('should navigate to the contacts page', async () => {
-//         await loginPage.open()
-//         await loginPage.login(regDetails)
-//         await HomePage.viewContactsPage()
-//     })
+    // Test for services page navigation
+    it('should navigate to the services page', async () => {
+        await loginPage.open()
+        await loginPage.login(regDetails)
+        await HomePage.viewServicesPage()
+    })
 
-//     // Test for account page navigation
-//     it('should navigate to the account page', async () => {
-//         await loginPage.open()
-//         await loginPage.login(regDetails)
-//         await HomePage.viewAccountPage()
-//     })
-// })
+    // Test for reports page navigation
+    it('should navigate to the reports page', async () => {
+        await loginPage.open()
+        await loginPage.login(regDetails)
+        await HomePage.viewReportsPage()
+    })
+
+    // Test for contacts page navigation
+    it('should navigate to the contacts page', async () => {
+        await loginPage.open()
+        await loginPage.login(regDetails)
+        await HomePage.viewContactsPage()
+    })
+
+    // Test for account page navigation
+    it('should navigate to the account page', async () => {
+        await loginPage.open()
+        await loginPage.login(regDetails)
+        await HomePage.viewAccountPage()
+    })
+})
 
 describe('Site actions', () => {
     
