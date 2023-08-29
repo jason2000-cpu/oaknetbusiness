@@ -44,6 +44,17 @@ class RegisterPage extends Page {
         await this.btnSubmit.click();
     }
 
+    async registerWithInvalidDetails (regDetails) {
+        const { firstname, lastname, username, password } = regDetails;
+        const email = 'james@gmail.com';
+        await this.inputUsername.setValue(username);
+        await this.inputPassword.setValue(password);
+        await this.inputEmail.setValue(email);
+        await this.inputFirstName.setValue(firstname);
+        await this.inputLastName.setValue(lastname);
+        await this.btnSubmit.click();
+    }
+
     /**
      * overwrite specific options to adapt it to page object
      */

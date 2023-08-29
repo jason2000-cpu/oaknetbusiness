@@ -20,6 +20,10 @@ class LoginPage extends Page {
         return $('button[type="submit"]');
     }
 
+    get errText () {
+        return $$('.text-danger')
+    }
+
     /**
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password
@@ -29,6 +33,19 @@ class LoginPage extends Page {
         await this.inputEmail.setValue(email);
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
+    }
+
+    async loginWithInvalidDetails () {
+        // const { email, password } = regDetails;
+        const email = 'jacktone@gmail.com';
+        const password = '12345';
+        await this.inputEmail.setValue(email);
+        await this.inputPassword.setValue(password);
+        await this.btnSubmit.click();
+
+        // const getErrText = await this.errText[0].getText();
+        // expect(getErrText.trim()).not.toBe('');
+        await this.errText[0].isExisting();
     }
 
     /**

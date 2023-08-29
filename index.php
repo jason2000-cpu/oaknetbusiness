@@ -161,7 +161,7 @@ if(empty($error)){
                             <form action="" method="POST">
                                 <!-- Email input -->
                                 <div class="form-outline mb-4">
-                                    <p class="text-danger">
+                                    <p class="text-danger" >
                                         <?php echo isset($error['email']) ? $error['email'] : '' ?></p>
                                     <input type="email" id="email" name="email" class="form-control" />
                                     <label class="form-label" for="email">Email address</label>

@@ -93,6 +93,7 @@ class HomePage extends Page {
         const { firstname,password, lastname, email, mobile, country, residence, image } = regDetails;
 
         const editProfileBtn = await $('#profEditBtn');
+        const successModal = await $('#swal2-html-container')
         // await editProfileBtn.scrollIntoView();
         browser.scroll(0, 200)
         console.log("THE EDIT PROFILE BUTTONS ARE::::::::", editProfileBtn.getText());
@@ -107,6 +108,8 @@ class HomePage extends Page {
         browser.execute((el) => el.click(), await this.profileImageInput);
         await browser.pause(8000);
         await this.profileSubmitBtn.click();
+        await browser.pause(5000);
+        await expect(successModal).toHaveTextContaining('Details updated successfully!')
 
         console.log("THE PROFILE DETAILS WERE FILLED SUCCESSFULLY")
 
@@ -162,13 +165,19 @@ class HomePage extends Page {
     }
 
     async viewContactsPage () {
+        const pageTitle = await $('#pageTitle')
+        const footer = await $('#me-rate')
         if(await this.profileModal.isExisting()) {
             await this.profileModalCloseBtn.click();
         }
         await this.contactsLink.click();
+
         const expectedPath = 'trade/contact.php';
         const url = await browser.getUrl();
         await expect(url).toContain(expectedPath)
+        await expect(pageTitle).toHaveTextContaining('Contact')
+        browser.scroll(0, 500)
+        await footer.isExisting();
     }
     
     async viewAccountPage () {
@@ -205,6 +214,8 @@ class HomePage extends Page {
         }
 
         navigateToDepositPage()
+
+
 
 
     }

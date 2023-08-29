@@ -31,7 +31,7 @@ $mail = new PHPMailer(true);
                 <div class="row">
                     <div class="col-12">
                         <div class="me-breadcrumb-box">
-                            <h1>Contact</h1>
+                            <h1 id="pageTitle">Contact</h1>
                             <p><a href="index-2.html">Home</a>Contact</p>
                         </div>
                     </div>
